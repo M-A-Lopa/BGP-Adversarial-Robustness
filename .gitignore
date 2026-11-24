@@ -1,0 +1,65 @@
+# =============================================================
+# BGP Adversarial Robustness — .gitignore
+# =============================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+eggs/
+*.whl
+
+# ---------- Virtual environments ----------
+venv/
+env/
+.venv/
+.env/
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+*.ipynb~
+
+# ---------- IDE ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Dataset (too large for git) ----------
+dataset/raw/
+dataset/processed/
+dataset/*.csv
+dataset/*.zip
+dataset/*.gz
+dataset/*.bz2
+dataset/*.mrt
+
+# ---------- Model checkpoints & outputs ----------
+*.pt
+*.pth
+*.pkl
+*.joblib
+*.h5
+checkpoints/
+outputs/
+results/
+logs/
+
+# ---------- Experiment tracking ----------
+mlruns/
+wandb/
+
+# ---------- Secrets ----------
+.env
+*.key
+*.pem

@@ -1,0 +1,84 @@
+# =============================================================
+# BGP Adversarial Robustness — Python Dependencies
+# =============================================================
+# PINNED VERSIONS — all three team members must use these exact
+# versions so results are reproducible across machines.
+#
+# Python version: 3.11.9 (everyone install this exact version)
+#
+# Install:  pip install -r requirements.txt
+# Verify:   python verify_env.py
+# =============================================================
+
+# ===== Core scientific stack =====
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.2
+
+# ===== Classical ML detectors =====
+# Naive Bayes, Decision Tree, SVM (linear kernel), Random Forest
+scikit-learn==1.5.2
+
+# XGBoost — gradient-boosted trees baseline
+xgboost==2.1.1
+
+# ===== Hidden Markov Model =====
+# HMM detector — scikit-learn-compatible API
+hmmlearn==0.3.2
+
+# ===== Extreme Learning Machine (ELM) =====
+# If hpelm fails to install, we fall back to our own
+# implementation in detectors/elm.py (just numpy + scipy)
+hpelm==1.0.10
+
+# ===== Deep learning (LSTM, GRU, BLS) =====
+# PyTorch for LSTM and GRU detectors.
+# NOTE: Install PyTorch separately using the command below
+# (this ensures you get the right CUDA version for your GPU).
+# DO NOT install torch from this file — use this instead:
+#
+#   pip install torch==2.3.1 torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cu121
+#
+# All three PCs have NVIDIA GPUs that support CUDA 12.1:
+#   - PC1: 16 GB GPU (Ryzen 9 build)
+#   - PC2: RTX 3050 (4 GB VRAM)
+#   - PC3: RTX 3050 Ti (4 GB VRAM)
+#
+# BLS detector — no pip package; implemented in detectors/bls.py
+# using numpy and scipy (Chen & Liu 2018).
+
+# ===== Explainability =====
+# SHAP feature-importance for cross-collector failure explanation
+shap==0.46.0
+
+# ===== Adversarial ML (attacks + defenses) =====
+# IBM Adversarial Robustness Toolbox — backdoor, poisoning,
+# evasion attacks; activation clustering, spectral signatures,
+# Neural Cleanse defenses.
+adversarial-robustness-toolbox==1.18.2
+
+# ===== BGP data parsing =====
+# Parse raw MRT-format BGP updates from Route Views / RIPE RIS
+mrtparse==2.6.1
+
+# ===== BGP message crafting (feasibility gate) =====
+# Generate protocol-valid BGP UPDATE messages for the
+# feasibility pipeline. scapy.contrib.bgp provides BGPUpdate,
+# BGPHeader, BGPPathAttr, BGPNLRI_IPv4, etc.
+scapy==2.6.1
+
+# ===== Visualization & reporting =====
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# ===== Experiment management =====
+tqdm==4.66.5
+pyyaml==6.0.2
+jsonlines==4.0.0
+
+# ===== Notebook support (optional) =====
+jupyter==1.1.1
+ipykernel==6.29.5
+
+# ===== Testing =====
+pytest==8.3.3
